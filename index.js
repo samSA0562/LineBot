@@ -1,15 +1,17 @@
-var express = require('express');
-var bodyParser = require('body-parser');
-var app = express();
-var jsonParser = bodyParser.json();
-const CHANNELACCESSTOKEN = process.env.LINE_CHANNEL_ACCESSTOKEN,
-	CHANNELSECRET = process.env.LINE_CHANNEL_SECRET,
-	CREDENTIALSTOKEN = JSON.parse(process.env.GOOGLE_CREDENTIALS_TOKEN),
-	GOOGLECLIENTID = process.env.GOOGLE_CLIENT_ID,
-	GOOGLECLIENTSECRET = process.env.GOOGLE_CLIENT_SECRET,
-	GOOGLEREDIRECTURL = process.env.GOOGLE_REDIRECTURL;
+var express = require('express')
+var bodyParser = require('body-parser')
+var app = express()
+var jsonParser = bodyParser.json()
+const CHANNELACCESSTOKEN = process.env.LINE_CHANNEL_ACCESSTOKEN
+const CHANNELSECRET = process.env.LINE_CHANNEL_SECRET
+const CREDENTIALSTOKEN = JSON.parse(process.env.GOOGLE_CREDENTIALS_TOKEN)
+const GOOGLECLIENTID = process.env.GOOGLE_CLIENT_ID
+const GOOGLECLIENTSECRET = process.env.GOOGLE_CLIENT_SECRET
+const GOOGLEREDIRECTURL = process.env.GOOGLE_REDIRECTURL
 
-var fs = require('fs');
+console.log(CHANNELACCESSTOKEN,CHANNELSECRET)
+
+const fs = require('fs');
 const {google} = require('googleapis');
 const {googleAuth} = require('google-auth-library');
 
@@ -35,7 +37,7 @@ var sendOptions = {host: 'api.line.me', port: 443, path: '/v2/bot/message/push',
 app.use(bodyParser.json());
 app.set('port', (process.env.PORT || 5000));
 app.get('/', function(req, res) {
-	res.send('KuKuParty');
+	res.send('Welecome');
 });
 app.post('/', jsonParser, function(req, res) {
 	let event = req.body.events[0];
