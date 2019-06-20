@@ -9,8 +9,6 @@ const GOOGLECLIENTID = process.env.GOOGLE_CLIENT_ID
 const GOOGLECLIENTSECRET = process.env.GOOGLE_CLIENT_SECRET
 const GOOGLEREDIRECTURL = process.env.GOOGLE_REDIRECTURL
 
-console.log(CHANNELACCESSTOKEN,CHANNELSECRET)
-
 const fs = require('fs');
 const {google} = require('googleapis');
 const {googleAuth} = require('google-auth-library');
