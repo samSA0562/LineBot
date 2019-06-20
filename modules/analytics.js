@@ -52,6 +52,9 @@ function textParseInput(sourceId, rplyToken, inputStr) {
 			msgLog[index][2] = "1";
 			return {"type": "text", "text": "在下將會安靜一輩子，直到你請我繼續說話為止(關鍵字：請開啟機器人)！"};
 		}
+		if (inputStr.match("sourceid")) {
+			return {"type": "text", "text": sourceId};
+		}
 	}	
 	
 	if (msgLog[index][2] == "1" && inputStr.match("請開啟機器人")) {
